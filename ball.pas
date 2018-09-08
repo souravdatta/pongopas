@@ -18,15 +18,9 @@ type
     IncrX, IncrY: real;
     Rad: integer;
     procedure Init(X, Y: real);
-<<<<<<< HEAD
-    procedure Update(Width, Height: integer; PaddleRect: TRect);
-    function GetRect: TRect;
-    function MissedCollison(PaddleRect: TRect): boolean;
-=======
     procedure Update(Width, Height: integer; PaddleRect, UPaddleRect: TRect);
     function GetRect: TRect;
     function MissedCollison(PaddleRect, UPaddleRect: TRect): boolean;
->>>>>>> 2 paddles
   end;
 
 implementation
@@ -40,11 +34,7 @@ begin
   Rad := C_RADIUS;
 end;
 
-<<<<<<< HEAD
-procedure TBall.Update(Width, Height: integer; PaddleRect: TRect);
-=======
 procedure TBall.Update(Width, Height: integer; PaddleRect, UPaddleRect: TRect);
->>>>>>> 2 paddles
 begin
   if (CurX - C_RADIUS < 0) or (Curx + C_RADIUS > Width) then
     IncrX := -1.0 * IncrX;
@@ -55,13 +45,10 @@ begin
     (CurX <= PaddleRect.X2) then
     IncrY := -1.0 * IncrY;
 
-<<<<<<< HEAD
-=======
   if (CurY - C_RADIUS <= UPaddleRect.Y2) and (CurX >= UPaddleRect.X1) and
     (CurX <= UPaddleRect.X2) then
     IncrY := -1.0 * IncrY;
 
->>>>>>> 2 paddles
   CurX := CurX + IncrX;
   CurY := CurY + IncrY;
 end;
@@ -82,21 +69,14 @@ begin
   GetRect := Rect;
 end;
 
-<<<<<<< HEAD
-function TBall.MissedCollison(PaddleRect: TRect): boolean;
-=======
 function TBall.MissedCollison(PaddleRect, UPaddleRect: TRect): boolean;
->>>>>>> 2 paddles
 begin
   if CurY + C_RADIUS > PaddleRect.Y1 + 1 then
     MissedCollison := True
   else
-<<<<<<< HEAD
-=======
   if CurY - C_RADIUS < UPaddleRect.Y2 - 1 then
     MissedCollison := True
   else
->>>>>>> 2 paddles
     MissedCollison := False;
 end;
 

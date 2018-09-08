@@ -15,11 +15,7 @@
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
-<<<<<<< HEAD
-      <DestinationDirectory Value="/home/sourav/publishedprojects"/>
-=======
       <DestinationDirectory Value="/home/sourav/publishedprojects/pong"/>
->>>>>>> 2 paddles
     </PublishOptions>
     <RunParams>
       <local>
