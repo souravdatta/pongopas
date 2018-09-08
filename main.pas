@@ -21,7 +21,7 @@ type
     procedure Close(Sender: TObject; var CloseAction: TCloseAction);
     procedure Draw(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure OnKeyPress(Sender: TObject; var Key: char);
+    procedure OnKeyPress(Sender: TObject; var Key: Char);
     procedure Tick(Sender: TObject);
   private
     procedure InitObjects;
@@ -63,29 +63,26 @@ begin
     Pen.Style := psDash;
     Line(0, Floor(Height / 2), Width, Floor(Height / 2));
     Pen.Style := psSolid;
-    try
-      Ellipse(Floor(R1.X1),
-        Floor(R1.Y1),
-        Floor(R1.X2),
-        Floor(R1.Y2));
-      FillRect(Floor(R2.X1),
-        Floor(R2.Y1),
-        Floor(R2.X2),
-        Floor(R2.Y2));
-      FillRect(Floor(R3.X1),
-        Floor(R3.Y1),
-        Floor(R3.X2),
-        Floor(R3.Y2))
-    finally
-      R1.Destroy;
-      R2.Destroy
-    end;
+    Ellipse(Floor(R1.X1),
+      Floor(R1.Y1),
+      Floor(R1.X2),
+      Floor(R1.Y2));
+    FillRect(Floor(R2.X1),
+      Floor(R2.Y1),
+      Floor(R2.X2),
+      Floor(R2.Y2));
+    FillRect(Floor(R3.X1),
+      Floor(R3.Y1),
+      Floor(R3.X2),
+      Floor(R3.Y2));
   end;
 end;
 
 procedure TForm1.Close(Sender: TObject; var CloseAction: TCloseAction);
 begin
   Ball.Destroy;
+  Paddle.Destroy;
+  UPaddle.Destroy;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -97,7 +94,7 @@ begin
   Form1.KeyPreview := True;
 end;
 
-procedure TForm1.OnKeyPress(Sender: TObject; var Key: char);
+procedure TForm1.OnKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = 'r' then
     InitObjects;

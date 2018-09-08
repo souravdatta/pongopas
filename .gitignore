@@ -1,0 +1,6 @@
+.DS_Store
+*.app
+*.lps
+*.res
+pong
+lib/

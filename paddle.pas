@@ -15,22 +15,22 @@ const
 type
   TPaddle = class
   public
-    Px, Py: real;
+    Px, Py: Real;
 
-    procedure Init(X, Y: real);
-    procedure Move(D: integer; Width: integer);
+    procedure Init(X, Y: Real);
+    procedure Move(D: Integer; Width: Integer);
     function GetRect: TRect;
   end;
 
 implementation
 
-procedure TPaddle.Init(X, Y: real);
+procedure TPaddle.Init(X, Y: Real);
 begin
   Px := X;
   Py := Y;
 end;
 
-procedure TPaddle.Move(D: integer; Width: integer);
+procedure TPaddle.Move(D: Integer; Width: Integer);
 begin
   if (Px >= 0) and (Px + C_WIDTH <= Width) then
     if D = 1 then
@@ -49,7 +49,6 @@ function TPaddle.GetRect: TRect;
 var
   R: TRect;
 begin
-  R := TRect.Create;
   with R do
   begin
     X1 := Px;

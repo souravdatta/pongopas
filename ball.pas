@@ -14,18 +14,18 @@ const
 type
   TBall = class
   public
-    CurX, CurY: real;
-    IncrX, IncrY: real;
-    Rad: integer;
-    procedure Init(X, Y: real);
-    procedure Update(Width, Height: integer; PaddleRect, UPaddleRect: TRect);
+    CurX, CurY: Real;
+    IncrX, IncrY: Real;
+    Rad: Integer;
+    procedure Init(X, Y: Real);
+    procedure Update(Width, Height: Integer; PaddleRect, UPaddleRect: TRect);
     function GetRect: TRect;
-    function MissedCollison(PaddleRect, UPaddleRect: TRect): boolean;
+    function MissedCollison(PaddleRect, UPaddleRect: TRect): Boolean;
   end;
 
 implementation
 
-procedure TBall.Init(X, Y: real);
+procedure TBall.Init(X, Y: Real);
 begin
   CurX := X;
   CurY := Y;
@@ -34,7 +34,7 @@ begin
   Rad := C_RADIUS;
 end;
 
-procedure TBall.Update(Width, Height: integer; PaddleRect, UPaddleRect: TRect);
+procedure TBall.Update(Width, Height: Integer; PaddleRect, UPaddleRect: TRect);
 begin
   if (CurX - C_RADIUS < 0) or (Curx + C_RADIUS > Width) then
     IncrX := -1.0 * IncrX;
@@ -57,7 +57,6 @@ function TBall.GetRect: TRect;
 var
   Rect: TRect;
 begin
-  Rect := TRect.Create;
   with Rect do
   begin
     X1 := CurX - Rad;
@@ -69,7 +68,7 @@ begin
   GetRect := Rect;
 end;
 
-function TBall.MissedCollison(PaddleRect, UPaddleRect: TRect): boolean;
+function TBall.MissedCollison(PaddleRect, UPaddleRect: TRect): Boolean;
 begin
   if CurY + C_RADIUS > PaddleRect.Y1 + 1 then
     MissedCollison := True

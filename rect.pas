@@ -8,7 +8,7 @@ uses
   Classes, SysUtils;
 
 type
-  TRect = class
+  TRect = object
   public
     X1, Y1, X2, Y2: real;
   end;
